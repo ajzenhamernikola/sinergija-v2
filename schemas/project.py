@@ -1,5 +1,7 @@
 from configs.domain_list import DomainList
 
+from schemas.util.relation import relation
+
 PROJECT_SCHEMA = {
     "title": {
         "type": "string",
@@ -7,26 +9,11 @@ PROJECT_SCHEMA = {
         "unique": True,
         "minlength": 3
     },
-    "lead_coordinator": {
-        "type": "objectid",
-        "required": True,
-        "data_relation": {
-            "resource": DomainList.PEOPLE,
-            "field": "_id",
-            "embeddable": True
-        }
-    },
+    "lead_coordinator": relation(DomainList.PEOPLE, True),
     "coordinators": {
         "type": "list",
         "required": True,
-        "schema": {
-            "type": "objectid",
-            "data_relation": {
-                "resource": DomainList.PEOPLE,
-                "field": "_id",
-                "embeddable": True
-            }
-        },
+        "schema": relation(DomainList.PEOPLE, True)
     },
     "description": {
         "type": "string",
@@ -43,25 +30,11 @@ PROJECT_SCHEMA = {
     "comments": {
         "type": "list",
         "required": True,
-        "schema": {
-            "type": "objectid",
-            "data_relation": {
-                "resource": DomainList.COMMENTS,
-                "field": "_id",
-                "embeddable": True
-            }
-        },
+        "schema": relation(DomainList.COMMENTS, True),
     },
     "rooms": {
         "type": "list",
         "required": True,
-        "schema": {
-            "type": "objectid",
-            "data_relation": {
-                "resource": DomainList.ROOMS,
-                "field": "_id",
-                "embeddable": True
-            }
-        },
+        "schema": relation(DomainList.ROOMS, True),
     },
 }

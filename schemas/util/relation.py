@@ -1,10 +1,10 @@
 from configs.domain_list import DomainList
 
 
-def relation(resource: DomainList, embeddable=True):
+def relation(resource: DomainList, required: bool, embeddable=True):
     return {
         "type": "objectid",
-        "required": True,
+        "required": required,
         "data_relation": {
             "resource": resource,
             "field": "_id",

@@ -1,15 +1,9 @@
 from configs.domain_list import DomainList
 
+from schemas.util.relation import relation
+
 COMMENT_SCHEMA = {
-    "person": {
-        "type": "objectid",
-        "required": True,
-        "data_relation": {
-            "resource": DomainList.PEOPLE,
-            "field": "_id",
-            "embeddable": True
-        }
-    },
+    "person": relation(DomainList.PEOPLE, True),
     "text": {
         "type": "string",
         "required": True,
