@@ -2,6 +2,7 @@ import os
 
 from configs.domain_list import DomainList
 from domains.comments import COMMENTS_DOMAIN
+from domains.events import EVENTS_DOMAIN
 from domains.people import PEOPLE_DOMAIN
 from domains.projects import PROJECTS_DOMAIN
 
@@ -20,5 +21,6 @@ MONGO_DBNAME = os.getenv("MONGO_DBNAME")
 DOMAIN = {
     DomainList.PEOPLE: PEOPLE_DOMAIN,
     DomainList.COMMENTS: COMMENTS_DOMAIN,
-    DomainList.PROJECTS: PROJECTS_DOMAIN
+    DomainList.PROJECTS: PROJECTS_DOMAIN,
+    DomainList.EVENTS: EVENTS_DOMAIN
 }
