@@ -2,6 +2,7 @@ import os
 
 from configs.domain_list import DomainList
 from domains.comments import COMMENTS_DOMAIN
+from domains.contacts import CONTACTS_DOMAIN
 from domains.events import EVENTS_DOMAIN
 from domains.people import PEOPLE_DOMAIN
 from domains.projects import PROJECTS_DOMAIN
@@ -27,4 +28,5 @@ DOMAIN = {
     DomainList.EVENTS: EVENTS_DOMAIN,
     DomainList.TEAMS: TEAMS_DOMAIN,
     DomainList.TASKS: TASKS_DOMAIN,
+    DomainList.CONTACTS: CONTACTS_DOMAIN,
 }
