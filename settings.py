@@ -1,5 +1,7 @@
 import os
 
+from domains.people import PEOPLE_DOMAIN
+
 # MongoDB configuration
 if os.getenv("MONGO_URI"):
     MONGO_URI = os.getenv("MONGO_URI")
@@ -12,4 +14,6 @@ else:
 MONGO_DBNAME = os.getenv("MONGO_DBNAME")
 
 # Domain configuration
-DOMAIN = {}
+DOMAIN = {
+    "people": PEOPLE_DOMAIN
+}
