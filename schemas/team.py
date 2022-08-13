@@ -3,28 +3,29 @@ from configs.domain_list import DomainList
 from schemas.util.relation import relation
 
 TEAM_SCHEMA = {
+    "coordinator": relation(DomainList.PEOPLE),
     "people": {
         "type": "list",
         "required": True,
-        "schema": relation(DomainList.PEOPLE, True)
+        "minlength": 1,
+        "schema": relation(DomainList.PEOPLE)
     },
     "projects": {
         "type": "list",
         "required": True,
         "default": [],
-        "schema": relation(DomainList.PROJECTS, True)
+        "schema": relation(DomainList.PROJECTS)
     },
-    "coordinator": relation(DomainList.PEOPLE, True),
     "comments": {
         "type": "list",
         "required": True,
         "default": [],
-        "schema": relation(DomainList.COMMENTS, True)
+        "schema": relation(DomainList.COMMENTS)
     },
     "rooms": {
         "type": "list",
         "required": True,
         "default": [],
-        "schema": relation(DomainList.ROOMS, True)
+        "schema": relation(DomainList.ROOMS)
     },
 }

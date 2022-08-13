@@ -1,7 +1,7 @@
 from configs.domain_list import DomainList
 
 
-def relation(resource: DomainList, required: bool, embeddable=True):
+def relation(resource: DomainList, required=True, embeddable=True):
     return {
         "type": "objectid",
         "required": required,

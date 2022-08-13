@@ -9,11 +9,12 @@ PROJECT_SCHEMA = {
         "unique": True,
         "minlength": 3
     },
-    "lead_coordinator": relation(DomainList.PEOPLE, True),
+    "lead_coordinator": relation(DomainList.PEOPLE),
     "coordinators": {
         "type": "list",
         "required": True,
-        "schema": relation(DomainList.PEOPLE, True)
+        "default": [],
+        "schema": relation(DomainList.PEOPLE)
     },
     "description": {
         "type": "string",
@@ -30,11 +31,13 @@ PROJECT_SCHEMA = {
     "comments": {
         "type": "list",
         "required": True,
-        "schema": relation(DomainList.COMMENTS, True),
+        "default": [],
+        "schema": relation(DomainList.COMMENTS),
     },
     "rooms": {
         "type": "list",
         "required": True,
-        "schema": relation(DomainList.ROOMS, True),
+        "default": [],
+        "schema": relation(DomainList.ROOMS),
     },
 }

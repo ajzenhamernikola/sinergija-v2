@@ -4,7 +4,7 @@ from schemas.util.relation import relation
 from schemas.util.time import TIME_SCHEMA
 
 EVENT_SCHEMA = {
-    "project": relation(DomainList.PROJECTS, True),
+    "project": relation(DomainList.PROJECTS),
     "title": {
         "type": "string",
         "required": True,
@@ -31,12 +31,12 @@ EVENT_SCHEMA = {
         "type": "list",
         "required": True,
         "default": [],
-        "schema": relation(DomainList.COMMENTS, True)
+        "schema": relation(DomainList.COMMENTS)
     },
     "rooms": {
         "type": "list",
         "required": True,
         "default": [],
-        "schema": relation(DomainList.ROOMS, True)
+        "schema": relation(DomainList.ROOMS)
     }
 }
