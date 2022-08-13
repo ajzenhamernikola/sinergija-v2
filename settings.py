@@ -1,5 +1,6 @@
 import os
 
+from domains.comments import COMMENTS_DOMAIN
 from domains.people import PEOPLE_DOMAIN
 
 # MongoDB configuration
@@ -15,5 +16,6 @@ MONGO_DBNAME = os.getenv("MONGO_DBNAME")
 
 # Domain configuration
 DOMAIN = {
-    "people": PEOPLE_DOMAIN
+    "people": PEOPLE_DOMAIN,
+    "comments": COMMENTS_DOMAIN
 }
