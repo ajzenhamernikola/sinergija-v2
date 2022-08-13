@@ -5,6 +5,7 @@ from domains.comments import COMMENTS_DOMAIN
 from domains.events import EVENTS_DOMAIN
 from domains.people import PEOPLE_DOMAIN
 from domains.projects import PROJECTS_DOMAIN
+from domains.tasks import TASKS_DOMAIN
 from domains.teams import TEAMS_DOMAIN
 
 # MongoDB configuration
@@ -24,5 +25,6 @@ DOMAIN = {
     DomainList.COMMENTS: COMMENTS_DOMAIN,
     DomainList.PROJECTS: PROJECTS_DOMAIN,
     DomainList.EVENTS: EVENTS_DOMAIN,
-    DomainList.TEAMS: TEAMS_DOMAIN
+    DomainList.TEAMS: TEAMS_DOMAIN,
+    DomainList.TASKS: TASKS_DOMAIN,
 }
