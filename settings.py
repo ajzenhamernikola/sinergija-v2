@@ -5,6 +5,7 @@ from domains.comments import COMMENTS_DOMAIN
 from domains.companies import COMPANIES_DOMAIN
 from domains.contacts import CONTACTS_DOMAIN
 from domains.events import EVENTS_DOMAIN
+from domains.messages import MESSAGES_DOMAIN
 from domains.people import PEOPLE_DOMAIN
 from domains.projects import PROJECTS_DOMAIN
 from domains.rooms import ROOMS_DOMAIN
@@ -32,5 +33,6 @@ DOMAIN = {
     DomainList.TASKS: TASKS_DOMAIN,
     DomainList.CONTACTS: CONTACTS_DOMAIN,
     DomainList.COMPANIES: COMPANIES_DOMAIN,
-    DomainList.ROOMS: ROOMS_DOMAIN
+    DomainList.ROOMS: ROOMS_DOMAIN,
+    DomainList.MESSAGES: MESSAGES_DOMAIN,
 }
