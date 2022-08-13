@@ -1,7 +1,9 @@
 import os
 
+from configs.domain_list import DomainList
 from domains.comments import COMMENTS_DOMAIN
 from domains.people import PEOPLE_DOMAIN
+from domains.projects import PROJECTS_DOMAIN
 
 # MongoDB configuration
 if os.getenv("MONGO_URI"):
@@ -16,6 +18,7 @@ MONGO_DBNAME = os.getenv("MONGO_DBNAME")
 
 # Domain configuration
 DOMAIN = {
-    "people": PEOPLE_DOMAIN,
-    "comments": COMMENTS_DOMAIN
+    DomainList.PEOPLE: PEOPLE_DOMAIN,
+    DomainList.COMMENTS: COMMENTS_DOMAIN,
+    DomainList.PROJECTS: PROJECTS_DOMAIN
 }

@@ -1,9 +1,11 @@
+from configs.domain_list import DomainList
+
 COMMENT_SCHEMA = {
     "person": {
         "type": "objectid",
         "required": True,
         "data_relation": {
-            "resource": "people",
+            "resource": DomainList.PEOPLE,
             "field": "_id",
             "embeddable": True
         }
