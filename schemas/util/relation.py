@@ -1,4 +1,5 @@
 from configs.domain_list import DomainList
+from eve import ID_FIELD
 
 
 def relation(resource: DomainList, required=True, embeddable=True):
@@ -7,7 +8,7 @@ def relation(resource: DomainList, required=True, embeddable=True):
         "required": required,
         "data_relation": {
             "resource": resource,
-            "field": "_id",
+            "field": ID_FIELD,
             "embeddable": embeddable
         }
     }

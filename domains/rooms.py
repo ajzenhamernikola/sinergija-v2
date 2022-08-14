@@ -1,3 +1,4 @@
+from authorization.role_based_access import MemberRoleAuth
 from schemas.room import ROOM_SCHEMA
 
 ROOMS_DOMAIN = {
@@ -5,5 +6,6 @@ ROOMS_DOMAIN = {
     "resource_methods": ["GET", "POST"],
     "item_methods": ["GET", "PATCH", "DELETE"],
     "soft_delete": True,
-    "schema": ROOM_SCHEMA
+    "schema": ROOM_SCHEMA,
+    "authentication": MemberRoleAuth,
 }

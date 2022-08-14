@@ -1,3 +1,4 @@
+from authorization.role_based_access import MemberRoleAuth
 from schemas.message import MESSAGE_SCHEMA
 
 MESSAGES_DOMAIN = {
@@ -6,4 +7,5 @@ MESSAGES_DOMAIN = {
     "item_methods": ["GET", "PATCH", "DELETE"],
     "soft_delete": True,
     "schema": MESSAGE_SCHEMA,
+    "authentication": MemberRoleAuth,
 }

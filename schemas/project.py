@@ -1,5 +1,6 @@
 from configs.domain_list import DomainList
 
+from schemas.util.date import json_date
 from schemas.util.relation import relation
 
 PROJECT_SCHEMA = {
@@ -16,18 +17,19 @@ PROJECT_SCHEMA = {
         "default": [],
         "schema": relation(DomainList.PEOPLE)
     },
+    "members": {
+        "type": "list",
+        "required": True,
+        "default": [],
+        "schema": relation(DomainList.PEOPLE)
+    },
     "description": {
         "type": "string",
         "required": True,
         "minlength": 10
     },
-    "start_date": {
-        "type": "date",
-        "required": True
-    },
-    "end_date": {
-        "type": "date"
-    },
+    "start_date": json_date(),
+    "end_date": json_date(False),
     "comments": {
         "type": "list",
         "required": True,
