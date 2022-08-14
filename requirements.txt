@@ -6,6 +6,7 @@ Eve==2.0
 Eve-Swagger==0.2.0
 Events==0.3
 Flask==2.2.1
+Flask-Cors==3.0.10
 importlib-metadata==4.12.0
 itsdangerous==2.1.2
 Jinja2==3.1.2
@@ -16,6 +17,7 @@ PyJWT==2.4.0
 pymongo==4.2.0
 python-dotenv==0.20.0
 simplejson==3.17.6
+six==1.16.0
 toml==0.10.2
 Werkzeug==2.2.1
 zipp==3.8.1
