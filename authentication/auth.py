@@ -1,10 +1,9 @@
-from datetime import timedelta
 from http.client import NOT_FOUND, UNPROCESSABLE_ENTITY
 
-from bson.objectid import ObjectId
-from configs.domain_list import DomainList
 from configs.jwt_payload_keys import JwtPayloadKeys
 from core.jwt import AccessTokenJwtEncoder, JwtDecoder, RefreshTokenJwtEncoder
+from db.collections.people import PeopleMongoOperations
+from eve import ID_FIELD
 from flask import Blueprint, Response, abort
 from flask import current_app as app
 from flask import make_response, request
@@ -15,7 +14,7 @@ bp = Blueprint("auth", __name__, url_prefix="/auth")
 
 def generate_auth_response(person) -> Response:
     jwt_payload = {
-        JwtPayloadKeys.USER_ID: str(person["_id"]),
+        JwtPayloadKeys.USER_ID: str(person[ID_FIELD]),
         JwtPayloadKeys.ROLES: person["roles"]
     }
     response = make_response(
@@ -39,9 +38,7 @@ def login():
     if not password:
         abort(UNPROCESSABLE_ENTITY, "Password is required")
 
-    people = app.data.driver.db[DomainList.PEOPLE]
-    person = people.find_one({"username": username})
-
+    person = PeopleMongoOperations().find_one_by_username(username)
     if not person:
         abort(NOT_FOUND, "User with the requested username does not exist")
 
@@ -62,10 +59,8 @@ def refresh():
     except DecodeError:
         abort(401, "'refresh_token' validation failed")
 
-    people = app.data.driver.db[DomainList.PEOPLE]
-    person = people.find_one(
-        {"_id": ObjectId(refresh_token_payload[JwtPayloadKeys.USER_ID])})
-
+    person = PeopleMongoOperations().find_by_id(
+        refresh_token_payload[JwtPayloadKeys.USER_ID])
     if not person:
         abort(401, "User does not exist")
 
