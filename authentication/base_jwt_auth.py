@@ -2,9 +2,10 @@ from http.client import UNAUTHORIZED
 
 from configs.jwt_payload_keys import JwtPayloadKeys
 from core.jwt import JwtDecoder
+from core.request import SinergijaRequest
 from db.collections.people import PeopleMongoOperations
 from eve.auth import TokenAuth
-from flask import abort
+from flask import abort, request
 
 
 class BaseJwtAuth(TokenAuth):
@@ -18,6 +19,8 @@ class BaseJwtAuth(TokenAuth):
             payload[JwtPayloadKeys.USER_ID])
         if not person:
             abort(UNAUTHORIZED, "User not found")
+
+        request.auth = payload
 
         return self.check_authentication(payload[JwtPayloadKeys.USER_ID], payload[JwtPayloadKeys.ROLES], allowed_roles, resource, method)
 

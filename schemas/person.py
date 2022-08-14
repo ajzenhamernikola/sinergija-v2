@@ -1,3 +1,5 @@
+from authorization.roles import ROLES, Roles
+
 PERSON_SCHEMA = {
     "first_name": {
         "type": "string",
@@ -40,6 +42,7 @@ PERSON_SCHEMA = {
     "roles": {
         "type": "list",
         "required": True,
-        "default": []
+        "default": [Roles.MEMBER],
+        "allowed": ROLES
     }
 }

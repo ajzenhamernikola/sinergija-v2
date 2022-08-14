@@ -8,8 +8,8 @@ class BaseMongoDomainOperations:
     def __init__(self, domain: DomainList) -> None:
         self.collection = self.get_mongo_collection(domain)
 
-    def get_mongo_collection(domain: DomainList):
+    def get_mongo_collection(self, domain: DomainList):
         return app.data.driver.db[domain]
 
     def find_by_id(self, id: str) -> None:
-        return self.collection.find_one({ID_FIELD, ObjectId(id)})
+        return self.collection.find_one({ID_FIELD: ObjectId(id)})

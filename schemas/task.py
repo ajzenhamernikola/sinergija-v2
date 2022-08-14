@@ -1,5 +1,6 @@
 from configs.domain_list import DomainList
 
+from schemas.util.date import json_date
 from schemas.util.relation import relation
 
 TASK_SCHEMA = {
@@ -23,17 +24,9 @@ TASK_SCHEMA = {
         "required": True,
         "minlength": 10,
     },
-    "start_date": {
-        "type": "date",
-        "required": True
-    },
-    "end_date": {
-        "type": "date"
-    },
-    "deadline": {
-        "type": "date",
-        "required": True
-    },
+    "start_date": json_date(),
+    "end_date": json_date(False),
+    "deadline": json_date(),
     "comments": {
         "type": "list",
         "required": True,
